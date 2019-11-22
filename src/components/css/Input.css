@@ -1,0 +1,6 @@
+.before {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  border: 1px solid red;
+  padding: 2rem 0;
+}
