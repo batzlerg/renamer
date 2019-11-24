@@ -1,37 +1,29 @@
 import React from 'react';
-import Input from './components/Input';
-import Output from './components/Output';
+import ComparisonRowContainer from './components/Comparison/ComparisonRowContainer';
 import Transformations from './components/Transformations';
-import AddTransformation from './components/AddTransformation';
+import AddRemoveButton from './components/AddRemoveButton';
 import CONSTS from './constants';
 import './App.css';
 
 const defaultTransformationType = CONSTS.TRANSFORM_TYPES[1];
+const getDefaultTransform = () => ({ text: '', type: defaultTransformationType });
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: '',
-      transformations: []
+      transformations: [getDefaultTransform()]
     };
-    this.onInputChange = this.onInputChange.bind(this);
     this.onAddTransformation = this.onAddTransformation.bind(this);
     this.onUpdateTransformation = this.onUpdateTransformation.bind(this);
     this.onRemoveTransformation = this.onRemoveTransformation.bind(this);
-  }
-
-  onInputChange(e) {
-    this.setState({
-      inputValue: e.target.value
-    });
   }
 
   onAddTransformation(e) {
     console.log('added');
     const transformations = [
       ...this.state.transformations,
-      { text: '', type: defaultTransformationType },
+      getDefaultTransform(),
     ];
     this.setState({ transformations });
   }
@@ -46,25 +38,26 @@ class App extends React.Component {
 
   onUpdateTransformation(index, update) {
     console.log('updated');
-    const transformations = this.state.transformations.map((t, i) =>
-      i === index ? Object.assign(t, update) : t
-    );
+    debugger;
+    let transformations = this.state.transformations.slice(); // don't mutate
+    transformations[index] = Object.assign(transformations[index], update);
     this.setState({ transformations });
   }
 
   render() {
     return (
       <div className="container">
-        <Input onInputChange={this.onInputChange}/>
-        <Output value={this.state.inputValue} />
+        <ComparisonRowContainer />
         <Transformations
           transformations={this.state.transformations}
           onRemoveTransformation={this.onRemoveTransformation}
           onUpdateTransformation={this.onUpdateTransformation}
         />
-        <AddTransformation
-          onAddTransformation={this.onAddTransformation}
-        />
+      <AddRemoveButton
+        type="add"
+        onClick={this.onAddTransformation}
+        text="Add a transformation"
+      />
       </div>
     );
   }

@@ -9,8 +9,8 @@ function Transformations(props) {
         <Transformation
           key={i}
           index={i}
-          onRemoveTransformation={props.onRemoveTransformation}
-          onUpdateTransformation={props.onUpdateTransformation}
+          onRemoveTransformation={() => props.onRemoveTransformation(i)}
+          onUpdateTransformation={update => props.onUpdateTransformation(i, update)}
           {...t}
         />
       )}

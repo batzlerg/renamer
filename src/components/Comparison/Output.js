@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/Output.css';
+import './Output.css';
 
 function Output(props) {
   return (
