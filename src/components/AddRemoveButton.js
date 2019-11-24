@@ -3,7 +3,6 @@ import './AddRemoveButton.css';
 
 function AddRemoveButton(props) {
   let buttonSymbol;
-  console.log(props.type);
   switch (props.type) {
     case 'add':
       buttonSymbol = '(+)';

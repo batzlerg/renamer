@@ -30,7 +30,6 @@ class ComparisonRowContainer extends React.Component {
   }
 
   onRemoveComparison(index) {
-    debugger;
     console.log('removed');
     const comparisons = this.state.comparisons.filter(
       (t, i) => i !== index

@@ -1,14 +1,14 @@
 import React from 'react';
-import Transformation from './Transformation';
-import './css/Transformations.css';
+import TransformRow from './TransformRow';
+import './TransformRowContainer.css';
 
-function Transformations(props) {
+function TransformRowContainer(props) {
   return (
-    <div className="transformations">
+    <div className="transformRowContainer">
       { props.transformations.map((t, i) =>
-        <Transformation
+        <TransformRow
           key={i}
-          index={i}
+          showRemoveButton={i > 0}
           onRemoveTransformation={() => props.onRemoveTransformation(i)}
           onUpdateTransformation={update => props.onUpdateTransformation(i, update)}
           {...t}
@@ -18,4 +18,4 @@ function Transformations(props) {
   );
 }
 
-export default Transformations;
+export default TransformRowContainer;

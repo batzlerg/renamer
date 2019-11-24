@@ -1,6 +1,6 @@
 import React from 'react';
 import ComparisonRowContainer from './components/Comparison/ComparisonRowContainer';
-import Transformations from './components/Transformations';
+import TransformRowContainer from './components/Transformation/TransformRowContainer';
 import AddRemoveButton from './components/AddRemoveButton';
 import CONSTS from './constants';
 import './App.css';
@@ -38,7 +38,6 @@ class App extends React.Component {
 
   onUpdateTransformation(index, update) {
     console.log('updated');
-    debugger;
     let transformations = this.state.transformations.slice(); // don't mutate
     transformations[index] = Object.assign(transformations[index], update);
     this.setState({ transformations });
@@ -48,7 +47,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <ComparisonRowContainer />
-        <Transformations
+        <TransformRowContainer
           transformations={this.state.transformations}
           onRemoveTransformation={this.onRemoveTransformation}
           onUpdateTransformation={this.onUpdateTransformation}
