@@ -38,9 +38,9 @@ const JS_TRANSFORMS = {
     let i = base.indexOf(input);
     if (i < 0) { return base; }
     return [
-      base.slice(0, i),
-      base.slice(i, base.length),
-      insert
+      base.slice(0, i + input.length),
+      insert,
+      base.slice(i + input.length, base.length)
     ].reduce((acc, curr) => acc + curr);
   }
 }
