@@ -1,4 +1,9 @@
 .container {
-  max-width: 50rem;
+  max-width: 40rem;
   margin: 0 auto;
+}
+
+html {
+  background-color: #ccc;
+  font-size: 1.3rem;
 }

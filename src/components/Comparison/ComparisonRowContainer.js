@@ -19,7 +19,7 @@ function ComparisonRowContainer(props) {
         type="add"
         onClick={props.onAddComparison}
         className="addComparison"
-        text="Add a comparison row"
+        text="Add a comparison"
       />
     </div>
   );

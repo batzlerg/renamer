@@ -1,7 +1,10 @@
 .transformRow {
-
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.removeTransformation {
-  font-size: 2rem;
+.transformRow input, .transformRow select {
+  font-size: 1rem;
 }

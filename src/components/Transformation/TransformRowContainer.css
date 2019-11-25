@@ -1,3 +1,4 @@
 .transformRowContainer {
-
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 3rem);
 }
