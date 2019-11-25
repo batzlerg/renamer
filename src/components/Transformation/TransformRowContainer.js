@@ -1,5 +1,6 @@
 import React from 'react';
 import TransformRow from './TransformRow';
+import AddRemoveButton from '../AddRemoveButton';
 import './TransformRowContainer.css';
 
 function TransformRowContainer(props) {
@@ -14,6 +15,11 @@ function TransformRowContainer(props) {
           {...t}
         />
       )}
+      <AddRemoveButton
+        type="add"
+        onClick={props.onAddTransformation}
+        text="Add a transformation"
+      />
     </div>
   );
 }

@@ -19,7 +19,7 @@ function ComparisonRow(props) {
     <div className="comparisonRow">
       {removeButton}
       <Input onInputChange={props.onInputChange}/>
-      <Output value={props.inputValue} />
+      <Output value={props.outputValue} />
     </div>
   );
 };
