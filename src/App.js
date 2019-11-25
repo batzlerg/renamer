@@ -78,7 +78,7 @@ class App extends React.Component {
         temp = CONSTS.JS_TRANSFORMS[t.type](
           temp,
           t.text,
-          t.insert ? t.insert : null,
+          t.insert ? t.insert : '',
         );
       }
       c.outputValue = temp;
