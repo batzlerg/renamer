@@ -45,7 +45,12 @@ class App extends React.Component {
 
   onUpdateTransformation(index, update) {
     let transformations = this.state.transformations.slice(); // don't mutate
-    transformations[index] = Object.assign(transformations[index], update);
+    const needsInsert = CONSTS.INSERT_TRANSFORMS.includes(update.type);
+    transformations[index] = Object.assign(
+      transformations[index],
+      needsInsert ? { insert: '' } : {},
+      update
+    );
     this.setState({
       transformations,
       comparisons: this.applyTransforms(this.state.comparisons, transformations)

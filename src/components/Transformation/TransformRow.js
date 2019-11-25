@@ -4,12 +4,15 @@ import CONSTS from '../../constants';
 import './TransformRow.css';
 
 function TransformRow(props) {
-  const onUpdateText = e => props.onUpdateTransformation(
-    { text: e.target.value },
-  );
-  const onUpdateType = e => props.onUpdateTransformation(
-    { type: e.target.value },
-  );
+  const onUpdateText = e => props.onUpdateTransformation({
+    text: e.target.value
+  });
+  const onUpdateInsert = e => props.onUpdateTransformation({
+    insert: e.target.value
+  });
+  const onUpdateType = e => props.onUpdateTransformation({
+    type: e.target.value
+  });
   let removeButton;
   // ensure there's at least one transformation showing
   // todo: break out into RemovableRow wrapper component
@@ -31,6 +34,9 @@ function TransformRow(props) {
           <option value={t} key={t}>{t.toUpperCase()}</option>
         )}
       </select>
+      { "insert" in props &&
+        <input type="text" name="transformInsert" onChange={onUpdateInsert}/>
+      }
     </div>
   );
 }

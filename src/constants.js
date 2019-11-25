@@ -53,5 +53,10 @@ export default {
     'add before',
     'add after'
   ],
+  INSERT_TRANSFORMS: [
+    'replace',
+    'add before',
+    'add after'
+  ],
   JS_TRANSFORMS
 }
