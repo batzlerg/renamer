@@ -1,6 +1,5 @@
 import React from 'react';
-import Input from './Input';
-import Output from './Output';
+import { Input, Output } from './TextBox';
 import AddRemoveButton from '../AddRemoveButton';
 import './ComparisonRow.css';
 
