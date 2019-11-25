@@ -23,7 +23,6 @@ class App extends React.Component {
   }
 
   onAddTransformation(e) {
-    console.log('added transformation');
     const transformations = [
       ...this.state.transformations,
       getDefaultTransform(),
@@ -35,7 +34,6 @@ class App extends React.Component {
   }
 
   onRemoveTransformation(index) {
-    console.log('removed transformation');
     const transformations = this.state.transformations.filter(
       (t, i) => i !== index
     );
@@ -46,7 +44,6 @@ class App extends React.Component {
   }
 
   onUpdateTransformation(index, update) {
-    console.log('updated transformation');
     let transformations = this.state.transformations.slice(); // don't mutate
     transformations[index] = Object.assign(transformations[index], update);
     this.setState({
@@ -56,14 +53,12 @@ class App extends React.Component {
   }
 
   onUpdateComparison(index, e) {
-    console.log('updated comparison');
     let updatedComps = this.state.comparisons.slice(); // don't mutate
     updatedComps[index] = { inputValue: e.target.value };
     this.setState({ comparisons: this.applyTransforms(updatedComps) });
   }
 
   onAddComparison(e) {
-    console.log('added comparison');
     let updatedComps = [
       ...this.state.comparisons,
       { inputValue: '' },
@@ -72,7 +67,6 @@ class App extends React.Component {
   }
 
   onRemoveComparison(index) {
-    console.log('removed comparison');
     const comparisons = this.state.comparisons.filter((t, i) => i !== index);
     this.setState({ comparisons });
   }
@@ -89,7 +83,6 @@ class App extends React.Component {
       }
       c.outputValue = temp;
     }
-    console.log(comps);
     return comps;
   }
 
