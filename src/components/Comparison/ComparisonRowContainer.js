@@ -22,7 +22,6 @@ function ComparisonRowContainer(props) {
       <AddRemoveButton
         type="add"
         onClick={props.onAddComparison}
-        className="addComparison"
         text="Add a comparison"
       />
     </div>

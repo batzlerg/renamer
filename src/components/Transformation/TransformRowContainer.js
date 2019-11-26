@@ -25,7 +25,6 @@ function TransformRowContainer(props) {
         type="add"
         onClick={props.onAddTransformation}
         text="Add a transformation"
-        className="addTransformation"
       />
     </div>
   );
