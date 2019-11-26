@@ -6,6 +6,10 @@ import './ComparisonRowContainer.css';
 function ComparisonRowContainer(props) {
   return (
     <div className="comparisonRowContainer">
+      <div className="header">
+        <h2>Comparisons</h2>
+        <p>Enter text to see how it will be transformed</p>
+      </div>
       { props.comparisons.map((c, i) =>
         <ComparisonRow
           key={i}

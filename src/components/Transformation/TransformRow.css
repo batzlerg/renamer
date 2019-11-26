@@ -1,10 +1,17 @@
 .transformRow {
   height: 3rem;
-  display: flex;
+  display: inline-grid;
   align-items: center;
-  justify-content: space-between;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1rem;
+  position: relative;
 }
 
 .transformRow input, .transformRow select {
   font-size: 1rem;
+}
+
+.removeTransformation {
+  position: absolute;
+  left: -2.5rem;
 }

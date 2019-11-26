@@ -5,10 +5,10 @@ function AddRemoveButton(props) {
   let buttonSymbol;
   switch (props.type) {
     case 'add':
-      buttonSymbol = '(+)';
+      buttonSymbol = '\u2295';
       break;
     case 'remove':
-      buttonSymbol = '(-)';
+      buttonSymbol = '\u2296';
       break;
     default:
       throw new Error(
@@ -16,11 +16,15 @@ function AddRemoveButton(props) {
       );
   }
   const className = props.className
-    ? `addRemoveButton ${props.className}`
-    : 'addRemoveButton';
-  const text = props.text ? `${buttonSymbol} ${props.text}` : buttonSymbol;
+    ? `addRemoveWrapper ${props.className}`
+    : 'addRemoveWrapper';
   return (
-    <span className={className} onClick={props.onClick}>{text}</span>
+    <div className={className}>
+      <span className='addRemoveButton' onClick={props.onClick}>
+        <span className='button'>{buttonSymbol}</span>
+        {props.text && props.text}
+      </span>
+    </div>
   );
 }
 

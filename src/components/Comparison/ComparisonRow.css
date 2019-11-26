@@ -3,4 +3,12 @@
   /* grid-template-columns: 1fr 1fr; */
   grid-column-gap: 2rem;
   grid-row-gap: 1rem;
+  position: relative;
+}
+
+.removeComparison {
+  position: absolute;
+  left: -2.5rem;
+  top: 1rem;
+  color: red;
 }

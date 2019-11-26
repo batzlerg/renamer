@@ -9,7 +9,7 @@ function ComparisonRow(props) {
     removeButton = (
       <AddRemoveButton
         type="remove"
-        className="remove"
+        className="removeComparison"
         onClick={props.onRemoveComparison}
       />
     );
