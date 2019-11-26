@@ -45,15 +45,24 @@ class App extends React.Component {
 
   onUpdateTransformation(index, update) {
     let transformations = this.state.transformations.slice(); // don't mutate
-    const needsInsert = CONSTS.INSERT_TRANSFORMS.includes(update.type);
-    if (!needsInsert && "insert" in transformations[index]) {
-      delete transformations[index].insert;
-    }
     transformations[index] = Object.assign(
       transformations[index],
-      needsInsert ? { insert: '' } : {},
       update
     );
+
+    if ("type" in update) {
+      // updated type needs insert field
+      const isInsertType = CONSTS.INSERT_TRANSFORMS.includes(update.type);
+      // old type already has insert field
+      const hasInsert = "insert" in transformations[index];
+
+      if (isInsertType && !hasInsert) {
+        transformations[index].insert = '';
+      } else if (!isInsertType && hasInsert) {
+        delete transformations[index].insert;
+      }
+    }
+
     this.setState({
       transformations,
       comparisons: this.applyTransforms(this.state.comparisons, transformations)
