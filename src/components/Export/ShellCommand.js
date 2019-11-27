@@ -7,7 +7,7 @@ function ShellCommand(props) {
   let commands = [];
   // iterator declaration
   if (isDirectoryRename) {
-    commands.push(`for f in [[directory]]*; do mv \"$f\" \"$(echo $f | `);
+    commands.push(`for f in [[directory]]*; do mv "$f" "$(echo $f | `);
   }
   commands.push('awk \'{');
   // loop over transformations to pipe to sed
@@ -19,7 +19,7 @@ function ShellCommand(props) {
   }
   commands.push('}1\'')
   if (isDirectoryRename) {
-    commands.push(')\"; done');
+    commands.push(')"; done');
   }
 
   return (

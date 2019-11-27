@@ -21,22 +21,22 @@ const JS_TRANSFORMS = {
 
 const BASH_TRANSFORMS = {
   'remove': input => {
-    return `sub(\"${input}\",\"\");`
+    return `sub("${input}","");`
   },
   'remove all': input => {
-    return `gsub(\"${input}\",\"\");`
+    return `gsub("${input}","");`
   },
   'replace': (input, insert) => {
-    return `sub(\"${input}\",\"${insert}\");`
+    return `sub("${input}","${insert}");`
   },
   'replace all': (input, insert) => {
-    return `gsub(\"${input}\",\"${insert}\");`
+    return `gsub("${input}","${insert}");`
   },
   'add before': (input, insert) => {
-    return `sub(\"${input}\",\"${insert}${input}\");`
+    return `sub("${input}","${insert}${input}");`
   },
   'add after': (input, insert) => {
-    return `sub(\"${input}\",\"${input}${insert}\");`
+    return `sub("${input}","${input}${insert}");`
   },
 };
 
