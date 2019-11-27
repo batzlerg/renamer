@@ -6,7 +6,7 @@
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   font-weight: bold;
   font-size: 1.1rem;
-  
+
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -16,4 +16,16 @@
 .shellCommand p {
   flex: 0 0 auto;
   margin: 0;
+}
+
+.directoryCheckboxWrapper {
+  font-size: 1.1rem;
+  display: flex;
+  align-content: center;
+}
+
+.directoryCheckbox {
+  margin-right: .5rem;
+  zoom: 1.5; /* no FF support, hence -moz prefixed fallback below */
+  -moz-transform: scale(1.5);
 }
