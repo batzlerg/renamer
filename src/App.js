@@ -106,21 +106,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <ComparisonRowContainer
-          comparisons={this.state.comparisons}
-          onAddComparison={this.onAddComparison}
-          onUpdateComparison={this.onUpdateComparison}
-          onRemoveComparison={this.onRemoveComparison}
-        />
-        <TransformRowContainer
-          transformations={this.state.transformations}
-          onAddTransformation={this.onAddTransformation}
-          onRemoveTransformation={this.onRemoveTransformation}
-          onUpdateTransformation={this.onUpdateTransformation}
-        />
-        <ShellCommand transformations={this.state.transformations}/>
-      </div>
+      <>
+        <div className="page-wrapper">
+          <h1>renamer</h1>
+          <div className="container">
+            <ComparisonRowContainer
+              comparisons={this.state.comparisons}
+              onAddComparison={this.onAddComparison}
+              onUpdateComparison={this.onUpdateComparison}
+              onRemoveComparison={this.onRemoveComparison}
+            />
+            <TransformRowContainer
+              transformations={this.state.transformations}
+              onAddTransformation={this.onAddTransformation}
+              onRemoveTransformation={this.onRemoveTransformation}
+              onUpdateTransformation={this.onUpdateTransformation}
+            />
+            <ShellCommand transformations={this.state.transformations}/>
+          </div>
+        </div>
+      </>
     );
   }
 

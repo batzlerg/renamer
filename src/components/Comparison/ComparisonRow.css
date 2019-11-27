@@ -1,14 +1,24 @@
 .comparisonRow {
   display: grid;
-  /* grid-template-columns: 1fr 1fr; */
-  grid-column-gap: 2rem;
+  grid-template-columns: 12fr 1fr;
+}
+
+.comparisonInputs {
+  display: grid;
   grid-row-gap: 1rem;
-  position: relative;
 }
 
 .removeComparison {
-  position: absolute;
-  left: -2.5rem;
-  top: 1rem;
-  color: red;
+  height: 100%;
+  display: flex;
+  color: black;
+  justify-content: center;
+}
+
+.removeComparison .button {
+  font-size: 3rem;
+}
+
+.removeComparison .addRemoveButton {
+  grid-column-gap: 0; /* allow precise centering */
 }

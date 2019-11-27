@@ -3,7 +3,3 @@
   display: grid;
   grid-row-gap: 2rem;
 }
-
-.header h2 {
-  margin-bottom: 0;
-}

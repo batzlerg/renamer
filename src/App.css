@@ -1,9 +1,24 @@
+h1 {
+  font-size: 3.5rem;
+  /* todo: animate in letters as if being renamed inline */
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #eee;
+  outline: #ccc solid 10px;
+}
+
+.page-wrapper {
   max-width: 40rem;
   margin: 0 auto;
-  margin-top: 2rem;
-  padding: 2rem 4rem;
-  background-color: #eee;
+  margin-bottom: 2rem;
 }
 
 html {
