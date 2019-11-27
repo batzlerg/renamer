@@ -1,6 +1,7 @@
 import React from 'react';
 import ComparisonRowContainer from './components/Comparison/ComparisonRowContainer';
 import TransformRowContainer from './components/Transformation/TransformRowContainer';
+import ShellCommand from './components/Export/ShellCommand';
 import CONSTS from './constants';
 import './App.css';
 
@@ -118,6 +119,7 @@ class App extends React.Component {
           onRemoveTransformation={this.onRemoveTransformation}
           onUpdateTransformation={this.onUpdateTransformation}
         />
+        <ShellCommand transformations={this.state.transformations}/>
       </div>
     );
   }

@@ -43,7 +43,30 @@ const JS_TRANSFORMS = {
       base.slice(i + input.length, base.length)
     ].reduce((acc, curr) => acc + curr);
   }
-}
+};
+
+const BASH_TRANSFORMS = {
+  'remove': input => ({
+    util: 'awk',
+    command: `sub(\"${input}\",\"\");`
+  }),
+  'remove all': input => ({
+    util: 'awk',
+    command: `gsub(\"${input}\",\"\");`
+  }),
+  'replace': (input, insert) => ({
+    util: 'awk',
+    command: `sub(\"${input}\",\"${insert}\");`
+  }),
+  'add before': (input, insert) => ({
+    util: 'awk',
+    command: `sub(\"${input}\",\"${insert}${input}\");`
+  }),
+  'add after': (input, insert) => ({
+    util: 'awk',
+    command: `sub(\"${input}\",\"${input}${insert}\");`
+  }),
+};
 
 export default {
   TRANSFORM_TYPES: [
@@ -58,5 +81,6 @@ export default {
     'add before',
     'add after'
   ],
-  JS_TRANSFORMS
+  JS_TRANSFORMS,
+  BASH_TRANSFORMS
 }

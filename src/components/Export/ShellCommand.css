@@ -1,0 +1,19 @@
+.shellCommand {
+  background-color: #282C34;
+  /* min-width: 15rem; */
+  color: #eee;
+  padding: 1rem;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+  
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+}
+
+.shellCommand p {
+  flex: 0 0 auto;
+  margin: 0;
+}
