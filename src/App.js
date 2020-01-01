@@ -8,12 +8,42 @@ import './App.css';
 const defaultTransformationType = CONSTS.TRANSFORM_TYPES[0];
 const getDefaultTransform = () => ({ text: '', type: defaultTransformationType });
 
+const title = "renamer";
+let randomTitleStates = [];
+const generateRandomStates = str => {
+  const exploded = Array.from(str);
+  randomTitleStates.push([...exploded]);
+
+  function shuffleLetters(i) {
+    let newArr = [...exploded];
+    let randIndex = Math.floor(Math.random() * (Math.floor(str.length - i)));
+    let oldChr = newArr[i];
+    newArr[i] = newArr[randIndex];
+    newArr[randIndex] = oldChr;
+    return newArr;
+  }
+  exploded.forEach((_, i) => {
+    let updated = shuffleLetters(i);
+    while (updated === randomTitleStates[randomTitleStates.length - 1]) {
+      updated = shuffleLetters(i);
+    }
+    randomTitleStates.push([...updated]);
+    console.log(randomTitleStates);
+  })
+  randomTitleStates = [
+    ...randomTitleStates,
+    ...randomTitleStates.slice(0, randomTitleStates.length-1).reverse()
+  ];
+};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       transformations: [ getDefaultTransform() ],
-      comparisons: [{ inputValue: '', outputValue: '' }]
+      comparisons: [{ inputValue: '', outputValue: '' }],
+      h1StateIndex: 0,
+      intervalId: null
     };
     this.onAddTransformation = this.onAddTransformation.bind(this);
     this.onUpdateTransformation = this.onUpdateTransformation.bind(this);
@@ -21,6 +51,18 @@ class App extends React.Component {
     this.onAddComparison = this.onAddComparison.bind(this);
     this.onUpdateComparison = this.onUpdateComparison.bind(this);
     this.onRemoveComparison = this.onRemoveComparison.bind(this);
+  }
+
+  componentDidMount() {
+    generateRandomStates(title);
+    const intervalId = setInterval(() => {
+      if (this.state.h1StateIndex === (randomTitleStates.length - 1)) {
+        clearTimeout(this.state.intervalId);
+      } else {
+        this.setState({ h1StateIndex: this.state.h1StateIndex + 1 });
+      }
+    }, 100);
+    this.setState({ intervalId });
   }
 
   onAddTransformation(e) {
@@ -108,7 +150,7 @@ class App extends React.Component {
     return (
       <>
         <div className="page-wrapper">
-          <h1>renamer</h1>
+          <h1>{randomTitleStates[this.state.h1StateIndex]}</h1>
           <div className="container">
             <ComparisonRowContainer
               comparisons={this.state.comparisons}
