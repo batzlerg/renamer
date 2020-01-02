@@ -26,6 +26,7 @@ function ShellCommand(props) {
       } else {
         commands.push(`Get-ChildItem * `);
       }
+      commands.push(`| Rename-Item -NewName { $_.Name `);
       pushTransforms();
       commands.push(`}`);
       break;
