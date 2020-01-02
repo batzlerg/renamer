@@ -1,5 +1,7 @@
 .transformRowContainer {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-rows: 2fr auto 2fr;
 }
 
 .transformRowContainer .rows {
