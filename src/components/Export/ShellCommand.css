@@ -1,32 +1,45 @@
-.shellCommand {
-  background-color: #282C34;
-  /* min-width: 15rem; */
-  color: #eee;
-  padding: 1rem;
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  font-weight: bold;
-  font-size: 1.1rem;
-
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-
+.header {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
-.shellCommand p {
-  flex: 0 0 auto;
-  margin: 0;
-}
-
-.directoryCheckboxWrapper {
+.directoryPathWrapper {
   font-size: 1.1rem;
   display: flex;
   align-content: center;
   margin-bottom: 1rem;
+  justify-content: space-between;
 }
 
 .directoryCheckbox {
   margin-right: .5rem;
   zoom: 1.5; /* no FF support, hence -moz prefixed fallback below */
   -moz-transform: scale(1.5);
+}
+
+.pathInput {
+  margin-left: .5rem;
+  font-size: 1rem;
+}
+
+.shellCommand {
+  background-color: #282C34;
+  color: #eee;
+  padding: 1rem;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.shellCommand p {
+  flex: 0 0 auto;
+  margin: 0;
 }

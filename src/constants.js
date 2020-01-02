@@ -21,22 +21,43 @@ const JS_TRANSFORMS = {
 
 const BASH_TRANSFORMS = {
   'remove': input => {
-    return `sub("${input}","");`
+    return `sub("${input}","");`;
   },
   'remove all': input => {
-    return `gsub("${input}","");`
+    return `gsub("${input}","");`;
   },
   'replace': (input, insert) => {
-    return `sub("${input}","${insert}");`
+    return `sub("${input}","${insert}");`;
   },
   'replace all': (input, insert) => {
-    return `gsub("${input}","${insert}");`
+    return `gsub("${input}","${insert}");`;
   },
   'add before': (input, insert) => {
-    return `sub("${input}","${insert}${input}");`
+    return `sub("${input}","${insert}${input}");`;
   },
   'add after': (input, insert) => {
-    return `sub("${input}","${input}${insert}");`
+    return `sub("${input}","${input}${insert}");`;
+  },
+};
+
+const POWERSHELL_TRANSFORMS = {
+  'remove': input => {
+    return `-replace '(.*?)${input}(.*)', '$1$2'`;
+  },
+  'remove all': input => {
+    return `-replace '${input}', ''`;
+  },
+  'replace': (input, insert) => {
+    return `-replace '(.*?)${input}(.*)', '$1${insert}$2'`;
+  },
+  'replace all': (input, insert) => {
+    return `-replace '${input}', '${insert}'`;
+  },
+  'add before': (input, insert) => {
+    return `-replace '(.*?)${input}(.*)', '$1${insert}${input}$2'`;
+  },
+  'add after': (input, insert) => {
+    return `-replace '(.*?)${input}(.*)', '$1${input}${insert}$2'`;
   },
 };
 
@@ -56,5 +77,6 @@ export default {
     'add after'
   ],
   JS_TRANSFORMS,
-  BASH_TRANSFORMS
+  BASH_TRANSFORMS,
+  POWERSHELL_TRANSFORMS
 }
