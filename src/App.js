@@ -165,11 +165,13 @@ class App extends React.Component {
             />
             <ShellCommand transformations={this.state.transformations}/>
           </div>
+          <footer>
+            <a href="https://grahammak.es">graham</a> made this &copy; {`2019-${new Date().getFullYear()}`}
+          </footer>
         </div>
       </>
     );
   }
-
 }
 
 export default App;
