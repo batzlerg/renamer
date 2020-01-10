@@ -28,7 +28,6 @@ const generateRandomStates = str => {
       updated = shuffleLetters(i);
     }
     randomTitleStates.push([...updated]);
-    console.log(randomTitleStates);
   })
   randomTitleStates = [
     ...randomTitleStates,
