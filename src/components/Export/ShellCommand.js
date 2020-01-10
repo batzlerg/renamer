@@ -3,43 +3,33 @@ import CONSTS from '../../constants';
 import './ShellCommand.css';
 
 function ShellCommand(props) {
-  const [ isDirectoryRename, setIsDirectoryRename ] = useState(false);
-  const [ path, setPath ] = useState('');
+  const [ path, setPath ] = useState('[[path to directory]]');
   const [ shellType, setShellType ] = useState('BASH');
   let commands = [];
-  // iterator declaration
 
   function pushTransforms() {
     // loop over transformations to pipe to transformer utility
     for (let t of props.transformations) {
       commands.push(CONSTS[`${shellType}_TRANSFORMS`][t.type](
         t.text,
-        t.insert || '' // todo: change to ||
+        t.insert || ''
       ));
     }
   };
 
   switch (shellType) {
     case 'POWERSHELL':
-      if (isDirectoryRename) {
-        commands.push(`Get-ChildItem -Path ${path} `);
-      } else {
-        commands.push(`Get-ChildItem * `);
-      }
+      commands.push(`Get-ChildItem -Path ${path} `);
       commands.push(`| Rename-Item -NewName { $_.Name `);
       pushTransforms();
       commands.push(`}`);
       break;
     default: // covers case 'BASH'
-      if (isDirectoryRename) {
-        commands.push(`for f in ${path}/*; do mv "$f" "$(echo $f | `);
-      }
+      commands.push(`for f in ${path}/*; do mv "$f" "$(echo $f | `);
       commands.push('awk \'{');
       pushTransforms();
       commands.push('}1\'')
-      if (isDirectoryRename) {
-        commands.push(')"; done');
-      }
+      commands.push(')"; done');
       break;
   }
 
@@ -57,29 +47,16 @@ function ShellCommand(props) {
       </div>
       <div className="directoryPathWrapper">
         <span>
+          <label htmlFor="pathInput">Path:</label>
           <input
-            type="checkbox"
-            name="isDirectoryRename"
-            id="isDirectoryRename"
-            className="directoryCheckbox"
-            checked={isDirectoryRename}
-            onChange={e => setIsDirectoryRename(e.target.checked)}
+            type="text"
+            name="pathInput"
+            id="pathInput"
+            className="pathInput"
+            value={path}
+            onChange={e => setPath(e.target.value)}
           />
-          <label htmlFor="isDirectoryRename">Rename files in a directory</label>
         </span>
-        {isDirectoryRename &&
-          <span>
-            <label htmlFor="pathInput">Path:</label>
-            <input
-              type="text"
-              name="pathInput"
-              id="pathInput"
-              className="pathInput"
-              value={path}
-              onChange={e => setPath(e.target.value)}
-            />
-          </span>
-        }
       </div>
       <div className='shellCommand'>
         <p>{ commands.reduce((acc, curr) => `${acc} ${curr}`) }</p>

@@ -13,7 +13,7 @@ function ComparisonRowContainer(props) {
       { props.comparisons.map((c, i) =>
         <ComparisonRow
           key={i}
-          showRemoveButton={i > 0}
+          showRemoveButton={props.comparisons.length > 1}
           outputValue={c.outputValue}
           onRemoveComparison={() => props.onRemoveComparison(i)}
           onInputChange={value => props.onUpdateComparison(i, value)}

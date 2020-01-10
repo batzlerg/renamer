@@ -14,7 +14,7 @@ function TransformRowContainer(props) {
         { props.transformations.map((t, i) =>
           <TransformRow
             key={i}
-            showRemoveButton={i > 0}
+            showRemoveButton={props.transformations.length > 1}
             onRemoveTransformation={() => props.onRemoveTransformation(i)}
             onUpdateTransformation={update => props.onUpdateTransformation(i, update)}
             {...t}

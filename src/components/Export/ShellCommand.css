@@ -8,16 +8,7 @@
 
 .directoryPathWrapper {
   font-size: 1.1rem;
-  display: flex;
-  align-content: center;
   margin-bottom: 1rem;
-  justify-content: space-between;
-}
-
-.directoryCheckbox {
-  margin-right: .5rem;
-  zoom: 1.5; /* no FF support, hence -moz prefixed fallback below */
-  -moz-transform: scale(1.5);
 }
 
 .pathInput {
