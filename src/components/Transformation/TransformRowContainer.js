@@ -1,16 +1,16 @@
 import React from 'react';
 import TransformRow from './TransformRow';
 import AddRemoveButton from '../AddRemoveButton';
-import './TransformRowContainer.css';
+import '../sharedStyles/RowContainer.css';
 
 function TransformRowContainer(props) {
   return (
-    <div className="transformRowContainer">
-      <div className="header">
+    <div className="rowContainer">
+      <div>
         <h2>Transformations</h2>
         <p>Add changes that will be applied to your text</p>
       </div>
-      <div className="rows">
+      <div>
         { props.transformations.map((t, i) =>
           <TransformRow
             key={i}

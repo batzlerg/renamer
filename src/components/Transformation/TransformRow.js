@@ -25,18 +25,36 @@ function TransformRow(props) {
       />
     );
   }
+  const hasInsert = "insert" in props;
+  const wrapperClass = `
+    transformInputs
+    ${props.showRemoveButton ? 'withRemove' : ''}
+    ${hasInsert ? 'withInsert' : ''}
+  `;
   return (
     <div className="transformRow">
+      <div className={wrapperClass}>
+        <input
+          type="text"
+          name="transformText"
+          onChange={onUpdateText}
+          placeholder="string to match"
+        />
+        <select value={props.type} onChange={onUpdateType}>
+          { CONSTS.TRANSFORM_TYPES.map(t =>
+            <option value={t} key={t}>{t.toUpperCase()}</option>
+          )}
+        </select>
+        { hasInsert &&
+          <input
+            type="text"
+            name="transformInsert"
+            onChange={onUpdateInsert}
+            placeholder="modifier"
+        />
+        }
+      </div>
       { removeButton }
-      <input type="text" name="transformText" onChange={onUpdateText}/>
-      <select value={props.type} onChange={onUpdateType}>
-        { CONSTS.TRANSFORM_TYPES.map(t =>
-          <option value={t} key={t}>{t.toUpperCase()}</option>
-        )}
-      </select>
-      { "insert" in props &&
-        <input type="text" name="transformInsert" onChange={onUpdateInsert}/>
-      }
     </div>
   );
 }

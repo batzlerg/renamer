@@ -1,6 +1,6 @@
 .comparisonRow {
   display: grid;
-  grid-template-columns: 12fr 1fr;
+  grid-template-columns: 19fr 1fr;
 }
 
 .comparisonInputs {
@@ -12,11 +12,7 @@
   height: 100%;
   display: flex;
   color: black;
-  justify-content: center;
-}
-
-.removeComparison .button {
-  font-size: 3rem;
+  justify-content: flex-end;
 }
 
 .removeComparison .addRemoveButton {

@@ -1,12 +1,12 @@
 import React from 'react';
 import ComparisonRow from './ComparisonRow';
 import AddRemoveButton from '../AddRemoveButton';
-import './ComparisonRowContainer.css';
+import '../sharedStyles/RowContainer.css';
 
 function ComparisonRowContainer(props) {
   return (
-    <div className="comparisonRowContainer">
-      <div className="header">
+    <div className="rowContainer">
+      <div>
         <h2>Comparisons</h2>
         <p>Enter text to see how it will be transformed</p>
       </div>
