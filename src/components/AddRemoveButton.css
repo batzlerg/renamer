@@ -1,16 +1,19 @@
 .addRemoveWrapper {
   font-size: 1.2rem;
   cursor: pointer;
+  display: flex;
 }
 
 .addRemoveButton {
-  float: right;
-  display: inline-grid;
+  display: inline-flex;
   align-items: center;
-  grid-template-columns: 1fr auto;
-  grid-column-gap: .5rem;
 }
 
 .button {
-  font-size: 2rem;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.text {
+  text-decoration: underline;
 }
