@@ -1,7 +1,7 @@
 import React from 'react';
 import TransformRow from './TransformRow';
-import AddRemoveButton from '../AddRemoveButton';
-import '../sharedStyles/RowContainer.css';
+import AddRemoveButton from './AddRemoveButton';
+import '../styles/RowContainer.css';
 
 function TransformRowContainer(props) {
   return (

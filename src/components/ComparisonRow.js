@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Output } from './TextBox';
-import AddRemoveButton from '../AddRemoveButton';
-import './ComparisonRow.css';
+import AddRemoveButton from './AddRemoveButton';
+import '../styles/ComparisonRow.css';
 
 function ComparisonRow(props) {
   let removeButton;

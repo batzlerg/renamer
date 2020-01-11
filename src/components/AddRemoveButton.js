@@ -1,5 +1,5 @@
 import React from 'react';
-import './AddRemoveButton.css';
+import '../styles/AddRemoveButton.css';
 
 function AddRemoveButton(props) {
   let buttonSymbol;

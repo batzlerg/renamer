@@ -1,7 +1,7 @@
 import React from 'react';
 import ComparisonRow from './ComparisonRow';
-import AddRemoveButton from '../AddRemoveButton';
-import '../sharedStyles/RowContainer.css';
+import AddRemoveButton from './AddRemoveButton';
+import '../styles/RowContainer.css';
 
 function ComparisonRowContainer(props) {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
-import AddRemoveButton from '../AddRemoveButton';
-import CONSTS from '../../constants';
-import './TransformRow.css';
+import AddRemoveButton from './AddRemoveButton';
+import CONSTS from '../constants';
+import '../styles/TransformRow.css';
 
 function TransformRow(props) {
   const onUpdateText = e => props.onUpdateTransformation({

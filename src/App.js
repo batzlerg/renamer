@@ -1,10 +1,10 @@
 import React from 'react';
-import ComparisonRowContainer from './components/Comparison/ComparisonRowContainer';
-import TransformRowContainer from './components/Transformation/TransformRowContainer';
-import ShellCommand from './components/Export/ShellCommand';
+import ComparisonRowContainer from './components/ComparisonRowContainer';
+import TransformRowContainer from './components/TransformRowContainer';
+import ShellCommand from './components/ShellCommand';
 import CONSTS from './constants';
 import { generateRandomStringStates } from './utils';
-import './App.css';
+import './styles/App.css';
 
 const defaultTransformationType = CONSTS.TRANSFORM_TYPES[0];
 const getDefaultTransform = () => ({ text: '', type: defaultTransformationType });

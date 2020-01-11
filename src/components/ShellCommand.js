@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import CONSTS from '../../constants';
-import './ShellCommand.css';
+import CONSTS from '../constants';
+import '../styles/ShellCommand.css';
 
 function ShellCommand(props) {
   const [ path, setPath ] = useState('[[path to directory]]');
