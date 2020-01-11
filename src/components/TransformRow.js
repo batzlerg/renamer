@@ -40,19 +40,19 @@ function TransformRow(props) {
           onChange={onUpdateText}
           placeholder="string to match"
         />
-        <select value={props.type} onChange={onUpdateType}>
-          { CONSTS.TRANSFORM_TYPES.map(t =>
-            <option value={t} key={t}>{t.toUpperCase()}</option>
-          )}
-        </select>
         { hasInsert &&
           <input
             type="text"
             name="transformInsert"
             onChange={onUpdateInsert}
             placeholder="modifier"
-        />
+          />
         }
+        <select value={props.type} onChange={onUpdateType}>
+          { CONSTS.TRANSFORM_TYPES.map(t =>
+            <option value={t} key={t}>{t.toUpperCase()}</option>
+          )}
+        </select>
       </div>
       { removeButton }
     </div>

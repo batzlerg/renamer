@@ -1,9 +1,6 @@
 .textBox {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 6fr;
+  grid-column-gap: 1rem;
   align-items: center;
-}
-
-.textBox input {
-  font-size: 1.3rem;
 }

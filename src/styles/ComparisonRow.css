@@ -9,12 +9,6 @@
 }
 
 .removeComparison {
-  height: 100%;
   display: flex;
-  color: black;
   justify-content: flex-end;
-}
-
-.removeComparison .addRemoveButton {
-  grid-column-gap: 0; /* allow precise centering */
 }
