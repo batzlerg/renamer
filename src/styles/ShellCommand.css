@@ -1,19 +1,28 @@
-.header {
-  width: 100%;
-  display: inline-flex;
+.options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.options label {
+  margin-right: 1rem;
+  text-align: right;
+}
+
+.options select {
+  height: auto;
+  max-width: 15rem;
+}
+
+.options input {
+  width: inherit;
+}
+
+.path {
+  display: grid;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.directoryPathWrapper {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-}
-
-.pathInput {
-  margin-left: .5rem;
-  font-size: 1rem;
+  grid-template-columns: minmax(0, 3rem) minmax(3rem, auto);
 }
 
 .shellCommand {
@@ -23,7 +32,6 @@
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   font-weight: bold;
   font-size: 1.1rem;
-  margin-bottom: 1rem;
 
   display: flex;
   flex-wrap: nowrap;

@@ -34,9 +34,15 @@ function ShellCommand(props) {
   }
 
   return (
-    <>
-      <div className="header">
+    <div className="rowContainer">
+      <div>
         <h2>Shell Output</h2>
+        <p>Paste into any {shellType} shell to rename files</p>
+      </div>
+      <div className='shellCommand'>
+        <p>{ commands.reduce((acc, curr) => `${acc} ${curr}`) }</p>
+      </div>
+      <div className="options">
         <select
           name="shellSelect"
           onChange={e => setShellType(e.target.value)}
@@ -44,25 +50,18 @@ function ShellCommand(props) {
           <option value="BASH">BASH (Mac/Linux)</option>
           <option value="POWERSHELL">POWERSHELL (Windows)</option>
         </select>
-      </div>
-      <div className="directoryPathWrapper">
-        <span>
+        <span className="path">
           <label htmlFor="pathInput">Path:</label>
           <input
             type="text"
             name="pathInput"
             id="pathInput"
-            className="pathInput"
             value={path}
             onChange={e => setPath(e.target.value)}
           />
         </span>
       </div>
-      <div className='shellCommand'>
-        <p>{ commands.reduce((acc, curr) => `${acc} ${curr}`) }</p>
-      </div>
-      <i>(copy/paste to any {shellType} shell to perform transformations)</i>
-    </>
+    </div>
   );
 }
 

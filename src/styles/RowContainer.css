@@ -1,7 +1,10 @@
 .rowContainer {
-  margin-bottom: 4rem;
   display: grid;
   grid-row-gap: 2rem;
+}
+
+.rowContainer:not(:last-of-type) {
+  margin-bottom: 4rem;
 }
 
 .rowContainer p {
