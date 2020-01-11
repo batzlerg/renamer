@@ -15,7 +15,6 @@ function TransformRow(props) {
   });
   let removeButton;
   // ensure there's at least one transformation showing
-  // todo: break out into RemovableRow wrapper component
   if (props.showRemoveButton) {
     removeButton = (
       <AddRemoveButton
@@ -26,11 +25,9 @@ function TransformRow(props) {
     );
   }
   const hasInsert = "insert" in props;
-  const wrapperClass = `
-    transformInputs
+  const wrapperClass = `transformInputs
     ${props.showRemoveButton ? 'withRemove' : ''}
-    ${hasInsert ? 'withInsert' : ''}
-  `;
+    ${hasInsert ? 'withInsert' : ''}`;
   return (
     <div className="transformRow">
       <div className={wrapperClass}>
@@ -50,7 +47,7 @@ function TransformRow(props) {
         }
         <select value={props.type} onChange={onUpdateType}>
           { CONSTS.TRANSFORM_TYPES.map(t =>
-            <option value={t} key={t}>{t.toUpperCase()}</option>
+            <option value={t} key={t}>{t}</option>
           )}
         </select>
       </div>

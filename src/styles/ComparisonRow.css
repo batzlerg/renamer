@@ -1,6 +1,7 @@
 .comparisonRow {
   display: grid;
-  grid-template-columns: 19fr 1fr;
+  grid-template-columns: 21fr 1fr;
+  grid-column-gap: 0.5rem;
 }
 
 .comparisonInputs {

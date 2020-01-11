@@ -1,3 +1,7 @@
+:root {
+  --offset: .7rem;
+}
+
 h1 {
   font-size: 3.5rem;
 }
@@ -9,13 +13,14 @@ h2 {
 
 .container {
   margin-top: 2rem;
-  padding: 2rem;
+  padding: calc(var(--offset) + 2vw);
   background-color: #eee;
-  outline: #ccc solid 10px;
+  outline: #ccc solid var(--offset);
 }
 
-.page-wrapper {
+.pageWrapper {
   max-width: 50rem;
+  padding: var(--offset);
   margin: 0 auto;
   margin-bottom: 2rem;
 }
@@ -27,4 +32,10 @@ html {
 footer {
   margin-top: 2rem;
   text-align: center;
+}
+
+@media only screen and (min-width: 100rem) {
+  .container {
+    padding: 2.5rem;
+  }
 }

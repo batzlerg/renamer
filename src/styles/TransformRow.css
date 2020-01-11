@@ -1,23 +1,30 @@
 .transformRow {
   display: grid;
-  grid-template-columns: 19fr 1fr;
+  grid-template-columns: 21fr 1fr;
+  grid-column-gap: 0.5rem;
 }
 
 .transformRow:not(:first-of-type) {
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 }
 
 .transformInputs {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
-  grid-row-gap: 1rem;
-}
-
-.transformInputs.withInsert {
-  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .removeTransformation {
   justify-content: flex-end;
+}
+
+@media only screen and (min-width: 40rem) {
+  .transformRow:not(:first-of-type) {
+    margin-top: 1rem;
+  }
+  .transformInputs {
+    grid-template-columns: 1fr 1fr;
+  }
+  .transformInputs.withInsert {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

@@ -122,7 +122,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <div className="page-wrapper">
+        <div className="pageWrapper">
           <h1>{this.state.scrambledTitles[this.state.scrambledTitleIndex]}</h1>
           <div className="container">
             <ComparisonRowContainer
