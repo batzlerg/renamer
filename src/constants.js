@@ -1,64 +1,30 @@
+const APP_TITLE = "renamer";
+
 const JS_TRANSFORMS = {
-  'remove': (base, input) => {
-    return base.replace(input, '');
-  },
-  'remove all': (base, input) => {
-    return base.replace(new RegExp(input, 'g'), '');
-  },
-  'replace': (base, input, insert) => {
-    return base.replace(input, insert);
-  },
-  'replace all': (base, input, insert) => {
-    return base.replace(new RegExp(input, 'g'), insert);
-  },
-  'add before': (base, input, insert) => {
-    return base.replace(input, `${insert}${input}`);
-  },
-  'add after': (base, input, insert) => {
-    return base.replace(input, `${input}${insert}`);
-  }
+  'remove': (base, input) => base.replace(input, ''),
+  'remove all': (base, input) => base.replace(new RegExp(input, 'g'), ''),
+  'replace': (base, input, insert) => base.replace(input, insert),
+  'replace all': (base, input, insert) => base.replace(new RegExp(input, 'g'), insert),
+  'add before': (base, input, insert) => base.replace(input, `${insert}${input}`),
+  'add after': (base, input, insert) => base.replace(input, `${input}${insert}`)
 };
 
 const BASH_TRANSFORMS = {
-  'remove': input => {
-    return `sub("${input}","");`;
-  },
-  'remove all': input => {
-    return `gsub("${input}","");`;
-  },
-  'replace': (input, insert) => {
-    return `sub("${input}","${insert}");`;
-  },
-  'replace all': (input, insert) => {
-    return `gsub("${input}","${insert}");`;
-  },
-  'add before': (input, insert) => {
-    return `sub("${input}","${insert}${input}");`;
-  },
-  'add after': (input, insert) => {
-    return `sub("${input}","${input}${insert}");`;
-  },
+  'remove': input => `sub("${input}","");`,
+  'remove all': input => `gsub("${input}","");`,
+  'replace': (input, insert) => `sub("${input}","${insert}");`,
+  'replace all': (input, insert) => `gsub("${input}","${insert}");`,
+  'add before': (input, insert) => `sub("${input}","${insert}${input}");`,
+  'add after': (input, insert) => `sub("${input}","${input}${insert}");`
 };
 
 const POWERSHELL_TRANSFORMS = {
-  'remove': input => {
-    return `-replace '(.*?)${input}(.*)', '$1$2'`;
-  },
-  'remove all': input => {
-    return `-replace '${input}', ''`;
-  },
-  'replace': (input, insert) => {
-    return `-replace '(.*?)${input}(.*)', '$1${insert}$2'`;
-  },
-  'replace all': (input, insert) => {
-    return `-replace '${input}', '${insert}'`;
-  },
-  'add before': (input, insert) => {
-    return `-replace '(.*?)${input}(.*)', '$1${insert}${input}$2'`;
-  },
-  'add after': (input, insert) => {
-    return `-replace '(.*?)${input}(.*)', '$1${input}${insert}$2'`;
-  },
+  'remove': input => `-replace '(.*?)${input}(.*)', '$1$2'`,
+  'remove all': input => `-replace '${input}', ''`,
+  'replace': (input, insert) => `-replace '(.*?)${input}(.*)', '$1${insert}$2'`,
+  'replace all': (input, insert) => `-replace '${input}', '${insert}'`,
+  'add before': (input, insert) => `-replace '(.*?)${input}(.*)', '$1${insert}${input}$2'`,
+  'add after': (input, insert) => `-replace '(.*?)${input}(.*)', '$1${input}${insert}$2'`
 };
 
 export default {
@@ -78,5 +44,6 @@ export default {
   ],
   JS_TRANSFORMS,
   BASH_TRANSFORMS,
-  POWERSHELL_TRANSFORMS
-}
+  POWERSHELL_TRANSFORMS,
+  APP_TITLE
+};

@@ -3,37 +3,11 @@ import ComparisonRowContainer from './components/Comparison/ComparisonRowContain
 import TransformRowContainer from './components/Transformation/TransformRowContainer';
 import ShellCommand from './components/Export/ShellCommand';
 import CONSTS from './constants';
+import { generateRandomStringStates } from './utils';
 import './App.css';
 
 const defaultTransformationType = CONSTS.TRANSFORM_TYPES[0];
 const getDefaultTransform = () => ({ text: '', type: defaultTransformationType });
-
-const title = "renamer";
-let randomTitleStates = [];
-const generateRandomStates = str => {
-  const exploded = Array.from(str);
-  randomTitleStates.push([...exploded]);
-
-  function shuffleLetters(i) {
-    let newArr = [...exploded];
-    let randIndex = Math.floor(Math.random() * (Math.floor(str.length - i)));
-    let oldChr = newArr[i];
-    newArr[i] = newArr[randIndex];
-    newArr[randIndex] = oldChr;
-    return newArr;
-  }
-  exploded.forEach((_, i) => {
-    let updated = shuffleLetters(i);
-    while (updated === randomTitleStates[randomTitleStates.length - 1]) {
-      updated = shuffleLetters(i);
-    }
-    randomTitleStates.push([...updated]);
-  })
-  randomTitleStates = [
-    ...randomTitleStates,
-    ...randomTitleStates.slice(0, randomTitleStates.length-1).reverse()
-  ];
-};
 
 class App extends React.Component {
   constructor(props) {
@@ -41,7 +15,8 @@ class App extends React.Component {
     this.state = {
       transformations: [ getDefaultTransform() ],
       comparisons: [{ inputValue: '', outputValue: '' }],
-      h1StateIndex: 0,
+      scrambledTitles: [],
+      scrambledTitleIndex: 0,
       intervalId: null
     };
     this.onAddTransformation = this.onAddTransformation.bind(this);
@@ -53,12 +28,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    generateRandomStates(title);
+    const scrambledTitles = generateRandomStringStates(CONSTS.APP_TITLE);
+    this.setState({ scrambledTitles });
     const intervalId = setInterval(() => {
-      if (this.state.h1StateIndex === (randomTitleStates.length - 1)) {
+      if (this.state.scrambledTitleIndex === (scrambledTitles.length - 1)) {
         clearTimeout(this.state.intervalId);
       } else {
-        this.setState({ h1StateIndex: this.state.h1StateIndex + 1 });
+        this.setState({ scrambledTitleIndex: this.state.scrambledTitleIndex + 1 });
       }
     }, 100);
     this.setState({ intervalId });
@@ -87,13 +63,10 @@ class App extends React.Component {
 
   onUpdateTransformation(index, update) {
     let transformations = this.state.transformations.slice(); // don't mutate
-    transformations[index] = Object.assign(
-      transformations[index],
-      update
-    );
+    transformations[index] = Object.assign(transformations[index], update);
 
     if ("type" in update) {
-      // updated type needs insert field
+      // new type needs insert field
       const isInsertType = CONSTS.INSERT_TRANSFORMS.includes(update.type);
       // old type already has insert field
       const hasInsert = "insert" in transformations[index];
@@ -126,8 +99,9 @@ class App extends React.Component {
   }
 
   onRemoveComparison(index) {
-    const comparisons = this.state.comparisons.filter((t, i) => i !== index);
-    this.setState({ comparisons });
+    this.setState({
+      comparisons: this.state.comparisons.filter((t, i) => i !== index)
+    });
   }
 
   applyTransforms(comps, trans = this.state.transformations) {
@@ -149,7 +123,7 @@ class App extends React.Component {
     return (
       <>
         <div className="page-wrapper">
-          <h1>{randomTitleStates[this.state.h1StateIndex]}</h1>
+          <h1>{this.state.scrambledTitles[this.state.scrambledTitleIndex]}</h1>
           <div className="container">
             <ComparisonRowContainer
               comparisons={this.state.comparisons}
