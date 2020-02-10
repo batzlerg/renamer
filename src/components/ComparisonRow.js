@@ -17,7 +17,10 @@ function ComparisonRow(props) {
   return (
     <div className="comparisonRow">
       <div className='comparisonInputs'>
-        <Input onInputChange={props.onInputChange}/>
+        <Input
+          value={props.inputValue}
+          onInputChange={props.onInputChange}
+        />
         <Output value={props.outputValue} />
       </div>
       {removeButton}

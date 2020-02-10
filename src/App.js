@@ -8,23 +8,31 @@ import './styles/App.css';
 
 const defaultTransformationType = CONSTS.TRANSFORM_TYPES[0];
 const getDefaultTransform = () => ({ text: '', type: defaultTransformationType });
+const getDefaultComparison = () => ({ inputValue: '', outputValue: '' });
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       transformations: [ getDefaultTransform() ],
-      comparisons: [{ inputValue: '', outputValue: '' }],
+      comparisons: [ getDefaultComparison() ],
       scrambledTitles: [],
       scrambledTitleIndex: 0,
       intervalId: null
     };
-    this.onAddTransformation = this.onAddTransformation.bind(this);
-    this.onUpdateTransformation = this.onUpdateTransformation.bind(this);
-    this.onRemoveTransformation = this.onRemoveTransformation.bind(this);
-    this.onAddComparison = this.onAddComparison.bind(this);
-    this.onUpdateComparison = this.onUpdateComparison.bind(this);
-    this.onRemoveComparison = this.onRemoveComparison.bind(this);
+    const bind = [
+      'onAddTransformation',
+      'onUpdateTransformation',
+      'onRemoveTransformation',
+      'onClearTransformations',
+      'onAddComparison',
+      'onUpdateComparison',
+      'onRemoveComparison',
+      'onClearComparisons',
+    ];
+    for (let f of bind) {
+      this[f] = this[f].bind(this);
+    }
   }
 
   componentDidMount() {
@@ -84,10 +92,8 @@ class App extends React.Component {
     });
   }
 
-  onUpdateComparison(index, e) {
-    let updatedComps = this.state.comparisons.slice(); // don't mutate
-    updatedComps[index] = { inputValue: e.target.value };
-    this.setState({ comparisons: this.applyTransforms(updatedComps) });
+  onClearTransformations() {
+    this.setState({ transformations: [getDefaultTransform()] });
   }
 
   onAddComparison(e) {
@@ -102,6 +108,16 @@ class App extends React.Component {
     this.setState({
       comparisons: this.state.comparisons.filter((t, i) => i !== index)
     });
+  }
+
+  onUpdateComparison(index, e) {
+    let updatedComps = this.state.comparisons.slice(); // don't mutate
+    updatedComps[index] = { inputValue: e.target.value };
+    this.setState({ comparisons: this.applyTransforms(updatedComps) });
+  }
+
+  onClearComparisons() {
+    this.setState({ comparisons: [getDefaultComparison()] });
   }
 
   applyTransforms(comps, trans = this.state.transformations) {
@@ -130,12 +146,14 @@ class App extends React.Component {
               onAddComparison={this.onAddComparison}
               onUpdateComparison={this.onUpdateComparison}
               onRemoveComparison={this.onRemoveComparison}
+              onClear={this.onClearComparisons}
             />
             <TransformRowContainer
               transformations={this.state.transformations}
               onAddTransformation={this.onAddTransformation}
               onRemoveTransformation={this.onRemoveTransformation}
               onUpdateTransformation={this.onUpdateTransformation}
+              onClear={this.onClearTransformations}
             />
             <ShellCommand transformations={this.state.transformations}/>
           </div>

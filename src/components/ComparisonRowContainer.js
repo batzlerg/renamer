@@ -15,6 +15,7 @@ function ComparisonRowContainer(props) {
           <ComparisonRow
             key={i}
             showRemoveButton={props.comparisons.length > 1}
+            inputValue={c.inputValue}
             outputValue={c.outputValue}
             onRemoveComparison={() => props.onRemoveComparison(i)}
             onInputChange={value => props.onUpdateComparison(i, value)}

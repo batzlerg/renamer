@@ -34,6 +34,7 @@ function TransformRow(props) {
         <input
           type="text"
           name="transformText"
+          value={props.text}
           onChange={onUpdateText}
           placeholder="string to match (case sensitive)"
         />
@@ -41,6 +42,7 @@ function TransformRow(props) {
           <input
             type="text"
             name="transformInsert"
+            value={props.insert}
             onChange={onUpdateInsert}
             placeholder="modifier"
           />
