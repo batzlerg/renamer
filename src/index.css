@@ -14,9 +14,17 @@ code {
 
 input {
   width: 100%;
+  font-size: 1.2rem;
+  box-sizing: border-box;
 }
 
-input, select {
-  font-size: 1.3rem;
+select {
+  font-size: 1.2rem;
   box-sizing: border-box;
+}
+
+hr {
+  margin: 2rem 2rem 2rem 0;
+  border-width: 0;
+  border-top: 2px solid rgba(0,0,0,.07);
 }

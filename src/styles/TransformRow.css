@@ -4,10 +4,6 @@
   grid-column-gap: 0.5rem;
 }
 
-.transformRow:not(:first-of-type) {
-  margin-top: 2.5rem;
-}
-
 .transformInputs {
   display: grid;
   grid-gap: 1rem;

@@ -11,7 +11,7 @@ function TransformRowContainer(props) {
         <p>Add changes that will be applied to your text</p>
       </div>
       <div>
-        { props.transformations.map((t, i) =>
+        { props.transformations.map((t, i, a) => <>
           <TransformRow
             key={i}
             showRemoveButton={props.transformations.length > 1}
@@ -19,7 +19,8 @@ function TransformRowContainer(props) {
             onUpdateTransformation={update => props.onUpdateTransformation(i, update)}
             {...t}
           />
-        )}
+          { i < a.length - 1 && <hr/> }
+        </>)}
       </div>
       <AddRemoveButton
         type="add"
