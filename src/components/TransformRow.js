@@ -35,7 +35,7 @@ function TransformRow(props) {
           type="text"
           name="transformText"
           onChange={onUpdateText}
-          placeholder="string to match"
+          placeholder="string to match (case sensitive)"
         />
         { hasInsert &&
           <input
