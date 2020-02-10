@@ -22,11 +22,19 @@ function TransformRowContainer(props) {
           { i < a.length - 1 && <hr/> }
         </>)}
       </div>
-      <AddRemoveButton
-        type="add"
-        onClick={props.onAddTransformation}
-        text="Add a transformation"
-      />
+      <div className="rowContainerButtons">
+        <AddRemoveButton
+          type="add"
+          onClick={props.onAddTransformation}
+          text="Add transformation"
+        />
+        { props.transformations.length > 1 && <AddRemoveButton
+          type="add"
+          onClick={props.onClear}
+          text="Clear all"
+          accent
+        /> }
+      </div>
     </div>
   );
 }

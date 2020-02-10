@@ -15,5 +15,24 @@
 }
 
 .text {
-  text-decoration: underline;
+  --hue: 195;
+  --saturation: 80%;
+  --lightness: 29%;
+  font-size: 1rem;
+  background-color: hsl(var(--hue), var(--saturation), var(--lightness));
+  color: white;
+  padding: .7rem;
+  border-radius: .2rem;
+}
+.text:hover {
+  --lightness: 26%;
+}
+
+.text.accent {
+  --hue: 10;
+  --saturation: 80%;
+  --lightness: 40%;
+}
+.text.accent:hover {
+  --lightness: 35%;
 }

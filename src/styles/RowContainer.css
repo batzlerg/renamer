@@ -12,3 +12,12 @@
   font-size: 1.2rem;
   margin-top: 1rem;
 }
+
+.rowContainerButtons {
+  margin-top: 1rem;
+  display: inline-flex;
+}
+
+.rowContainerButtons .addRemoveWrapper {
+  margin-right: 1.3rem;
+}

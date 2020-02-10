@@ -19,8 +19,8 @@ function AddRemoveButton(props) {
     ? `addRemoveWrapper ${props.className}`
     : 'addRemoveWrapper';
   const display = props.text
-    ? <span className='text'>{props.text}</span>
-    : <span className='button'>{buttonSymbol}</span>;
+    ? <span className={`text ${props.accent ? 'accent' : ''}`}>{props.text}</span>
+    : <span className={`button ${props.accent ? 'accent' : ''}`}>{buttonSymbol}</span>;
   return (
     <div className={className}>
       <span className='addRemoveButton' onClick={props.onClick}>

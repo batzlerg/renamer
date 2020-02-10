@@ -22,11 +22,19 @@ function ComparisonRowContainer(props) {
           { i < a.length - 1 && <hr/> }
         </>)}
       </div>
-      <AddRemoveButton
-        type="add"
-        onClick={props.onAddComparison}
-        text="Add a comparison"
-      />
+      <div className="rowContainerButtons">
+        <AddRemoveButton
+          type="add"
+          onClick={props.onAddComparison}
+          text="Add comparison"
+        />
+        { props.comparisons.length > 1 && <AddRemoveButton
+          type="add"
+          onClick={props.onClear}
+          text="Clear all"
+          accent
+        /> }
+      </div>
     </div>
   );
 }
