@@ -21,7 +21,7 @@
   font-size: 1rem;
   background-color: hsl(var(--hue), var(--saturation), var(--lightness));
   color: white;
-  padding: .7rem;
+  padding: .7rem 1rem;
   border-radius: .2rem;
 }
 .text:hover {
