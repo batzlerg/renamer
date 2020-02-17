@@ -15,14 +15,12 @@
 }
 
 .text {
-  --hue: 195;
-  --saturation: 80%;
-  --lightness: 29%;
   font-size: 1rem;
+  /* variables are defined in index.css */
   background-color: hsl(var(--hue), var(--saturation), var(--lightness));
   color: white;
   padding: .7rem 1rem;
-  border-radius: .2rem;
+  border-radius: var(--border-radius);
 }
 .text:hover {
   --lightness: 26%;

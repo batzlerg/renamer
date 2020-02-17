@@ -1,5 +1,5 @@
 :root {
-  --offset: .7rem;
+  --offset: .4rem;
 }
 
 h1 {
@@ -16,6 +16,7 @@ h2 {
   margin-top: 2rem;
   padding: calc(var(--offset) + 2vw);
   background-color: #eee;
+  box-sizing: border-box;
   outline: #ccc solid var(--offset);
 }
 
