@@ -14,6 +14,7 @@ function ComparisonRow(props) {
       />
     );
   }
+  const hasInputValue = props.inputValue && props.inputValue !== '';
   return (
     <div className="comparisonRow">
       <div className='comparisonInputs'>
@@ -21,7 +22,9 @@ function ComparisonRow(props) {
           value={props.inputValue}
           onInputChange={props.onInputChange}
         />
-        <Output value={props.outputValue} />
+        { hasInputValue &&
+          <Output value={props.outputValue} />
+        }
       </div>
       {removeButton}
     </div>
